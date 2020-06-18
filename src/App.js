@@ -1,14 +1,15 @@
-import React from 'react';
-// import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
-import Cockpit from './components/Cockpit/Cockpit';
+import HeroList from './components/HeroList/HeroList'
 
-function App() {
-  return (
-    <div className="App">
-      <Cockpit />
-    </div>
-  );
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <HeroList />
+      </div>
+    );
+  }
 }
 
 export default App;
