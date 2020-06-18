@@ -1,8 +1,10 @@
 import React, { Component } from "react"
 import Axios from "axios"
+import './HeroList.css'
 
 class heroList extends Component {
-  url = "/api/"
+  // url = "http://localhost:80/api"
+  url = "/api"
 
   state = {
     heroes: [],
@@ -14,9 +16,9 @@ class heroList extends Component {
     Axios
       .get(this.url)
       .then((response) => {
-        this.setState({ heroes: response.data })
+        this.setState({ heroes: response.data._embedded.heroList })
       })
-      .catch((err)=>{console.log(`requesting heroes error: ${err.message}`)})
+      .catch((err) => { console.log(err.message) })
       .then(() => {
         console.log("fetching ENDED.")
       })
@@ -24,8 +26,8 @@ class heroList extends Component {
 
   render() {
     const heroes =
-      <ul>
-        {this.state.heroes.map(hero => <li>{hero}</li>)}
+      <ul className="heroList">
+        {this.state.heroes.map(hero => <li key={hero.id}>{hero.name}</li>)}
       </ul>
 
     return <>{this.state.heroes ? heroes : null}</>
