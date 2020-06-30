@@ -1,0 +1,14 @@
+.Navbar {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.Navbar li {
+    padding: 8px 16px;
+}
+
+.Navbar li a {
+    color: #fff;
+}
